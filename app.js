@@ -1,4 +1,5 @@
 // importing modules
+require("dotenv").config();
 const express = require("express");
 const exphbs = require("express-handlebars");
 const forceSSL = require("express-force-ssl");
@@ -15,26 +16,7 @@ const app = express();
 
 global.appServer = app;
 
-/*  If the user is local development import the .env file, else do not load the
-    .env file. Also if production is set start newrelic for monitoring */
-if (app.get("env") === "development") {
-  /* eslint-disable global-require */
-  require("dotenv").config();
-} else if (app.get("env") === "production") {
-  // Import the NewRelic Module.
-  require("newrelic");
-  // Force https protocol for any connection
-  app.use(forceSSL);
-  /* Ensure that the XFPHeader is trusted, otherwise can cause redirect loop */
-  app.set("forceSSLOptions", {
-    trustXFPHeader: true,
-    sslRequireMessage: "SSL Required."
-  });
-} else {
-  console.log(
-    "Please set your NODE_ENV to either `development` or `production`"
-  );
-}
+
 
 // Importing the favicon, remove if you do not have one.
 // app.use(favicon(`${__dirname}/lib/public/img/favicon.ico`));
@@ -61,23 +43,9 @@ const hbs = exphbs.create({
   defaultLayout: 'main',
   // Specify helpers which are only registered on this instance.
   helpers: {
-    formatdate(date, format) {
-      if (date === '' || date === undefined || date === 'undefined' || date === null) {
-        return '';
-      }
-      const mD = moment(new Date(date)).format(format.toString());
-      return (mD);
-    },
     ifEquals(arg1, arg2, options) {
       return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
     },
-    ifArrIncludes(arg1, arg2, options) {
-      if (arg1 != null && arg1.length > 0 && arg2 != null) {
-        return (arg1.includes(arg2.toString())) ? options.fn(this) : options.inverse(this);
-      } else {
-        return options.inverse(this);
-      }
-    }
   },
 });
 
@@ -97,18 +65,11 @@ app.use(
   })
 );
 
-// Importing all unauthorized routes to the server
-const notAuthorizedRoutes = require("./lib/routes/not-authorized-routes");
-
 // Importing all authorized routes to the server
 const authenticatedRoutes = require("./lib/routes/authenticated-routes");
 
 // compress all routes
 app.use(compression());
-
-// Load authenticated routes
-// app.use("/", notAuthorizedRoutes);
-
 
 
 // Load authenticated routes
@@ -135,7 +96,7 @@ if (app.get("env") === "development") {
 
 // production error handler. No stacktraces leaked to user
 app.use((err, req, res) => {
-  console.log("ERROR IN DEV SERVER ", err);
+  console.log("ERROR IN PROD SERVER ", err);
   res.status(err.status || 500);
   res.render("error", {
     message: err.message,

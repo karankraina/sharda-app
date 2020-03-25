@@ -48,16 +48,7 @@ gulp.task('babelify-js-general-vendor', () => {
 
 /* BROWSERIFY TASKS  */
 
-/*  Browserify turns front end modules into a single bundle.js. It reads the ES6
-    files found in the src directory and then outputs the bundle.js file to
-    public/js to in the lib be rendered on the browser. */
-gulp.task('browserify', () => {
-  return browserify('src/client-controllers/main.js')
-    .transform('babelify')
-    .bundle()
-    .pipe(source('bundle.js')) // this is the output file name
-    .pipe(gulp.dest('./lib/public/js/')); // and this is where it ends up
-});
+
 
 /*  -----------------------  */
 
@@ -122,7 +113,6 @@ gulp.task('minify-js', () => {
 gulp.task('watch', () => {
   gulp.watch('./src/server-controllers/**/*.js', gulp.series('babelify-server-controllers'));
   gulp.watch('./src/routes/**/*.js', gulp.series('babelify-routes'));
-  gulp.watch('./src/client-controllers/**/*.js', gulp.series('browserify'));
   gulp.watch('./src/public/scss/**/*.scss', gulp.series('sass'));
   gulp.watch('./src/public/img/*', gulp.series('image'));
   gulp.watch('./src/public/js/*.js', gulp.series('minify-js'));
@@ -130,7 +120,7 @@ gulp.task('watch', () => {
   gulp.watch('./src/public/vendor/css/**/*.css', gulp.series('minify-css-vendor'));
 });
 
-gulp.task('build', gulp.series('babelify-server-controllers', 'babelify-routes', 'image', 'sass', 'browserify', 'babelify-js-vendor', 'babelify-js-general-vendor', 'minify-css-vendor'));
+gulp.task('build', gulp.series('babelify-server-controllers', 'babelify-routes', 'image', 'sass', 'babelify-js-vendor', 'babelify-js-general-vendor', 'minify-css-vendor'));
 /*  -----------------------  */
 
 /* START TASK */
