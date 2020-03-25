@@ -1,0 +1,63 @@
+{
+	"name": "basic",
+	"description": "A Node.js web accelerator created by Karan",
+	"repository": "https://github.com/karankraina/somerepo",
+	"logo": "https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png",
+	"template": "https://github.com/karankraina/somerepo",
+	"keywords": [
+		"node",
+		"express",
+		"handlebars"
+	],
+	"stack": "heroku-16",
+	"env": {
+		"NODE_ENV": {
+			"value": "production",
+			"description": "Set's the enviroment to production",
+			"required": true
+		}
+	},
+	"addons": [
+		"papertrail:fixa",
+		"newrelic:hawke"
+	],
+	"formation": {
+		"web": {
+			"quantity": 1,
+			"size": "Standard-1X"
+		}
+	},
+	"environments": {
+		"test": {
+			"scripts": {
+				"test": "npm test"
+			},
+			"env": {
+				"API_TOKEN": {
+					"required": true
+				},
+				"GITHUB_USERNAME": {
+					"required": true
+				}
+			},
+			"formation": {
+				"web": {
+					"quantity": 1,
+					"size": "Standard-1X"
+				}
+			},
+			"buildpacks": [
+			 {
+				 "url": "heroku/nodejs"
+			 },
+			 {
+				 "url": "https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/jvm-common.tgz"
+			 }
+		 ],
+			"addons": []
+		}
+	},
+	"buildpacks": [{
+		"url": "heroku/nodejs"
+	}]
+}
