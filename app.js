@@ -8,7 +8,7 @@ const morgan = require("morgan");
 const moment = require("moment")
 const bodyParser = require("body-parser");
 const compression = require("compression");
-// const favicon = require('serve-favicon');
+const favicon = require('serve-favicon');
 const helmet = require("helmet");
 const { auth } = require('./lib/server-controllers/authentication-module')
 
@@ -16,18 +16,14 @@ const { auth } = require('./lib/server-controllers/authentication-module')
 const app = express();
 app.use(express.static(path.join(__dirname, "lib/public")));
 
-const publicRoutes = require("./lib/routes/public-routes");
-const apiRoutes = require("./lib/routes/api-routes");
-app.use("/", publicRoutes);
-app.use("/api/", apiRoutes);
-auth(app)
+
 
 global.appServer = app;
 
 
 
 // Importing the favicon, remove if you do not have one.
-// app.use(favicon(`${__dirname}/lib/public/img/favicon.ico`));
+app.use(favicon(`${__dirname}/lib/public/img/favicon.ico`));
 
 // Added further layer of security
 app.use(helmet());
@@ -73,14 +69,19 @@ app.use(
   })
 );
 
-// Importing all authorized routes to the server
-const authenticatedRoutes = require("./lib/routes/authenticated-routes");
+
 
 // compress all routes
 app.use(compression());
 
+// Importing all authorized routes to the server
+const authenticatedRoutes = require("./lib/routes/authenticated-routes");
+const publicRoutes = require("./lib/routes/public-routes");
+const apiRoutes = require("./lib/routes/api-routes");
 
-// Load authenticated routes
+app.use("/", publicRoutes);
+app.use("/api/", apiRoutes);
+auth(app)
 app.use("/", authenticatedRoutes);
 
 // catch 404 and forward to error handler
