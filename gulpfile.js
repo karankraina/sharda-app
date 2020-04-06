@@ -20,7 +20,14 @@ const pump = require('pump');
     files in the lib/server-controllers/ */
 gulp.task('babelify-server-controllers', () => {
   return gulp.src('src/server-controllers/**/*.js').pipe(babel({
-    presets: ['@babel/preset-env'],
+    presets: [[
+      "@babel/preset-env",
+      {
+        "targets": {
+          "esmodules": true
+        }
+      }
+    ]],
   })).pipe(gulp.dest('lib/server-controllers/'));
 });
 

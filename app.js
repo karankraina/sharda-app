@@ -10,9 +10,17 @@ const bodyParser = require("body-parser");
 const compression = require("compression");
 // const favicon = require('serve-favicon');
 const helmet = require("helmet");
+const { auth } = require('./lib/server-controllers/authentication-module')
 
 // Importing the express module under the `app` variable
 const app = express();
+app.use(express.static(path.join(__dirname, "lib/public")));
+
+const publicRoutes = require("./lib/routes/public-routes");
+const apiRoutes = require("./lib/routes/api-routes");
+app.use("/", publicRoutes);
+app.use("/api/", apiRoutes);
+auth(app)
 
 global.appServer = app;
 
@@ -54,7 +62,7 @@ app.set("views", path.join(__dirname, "views"));
 app.engine("handlebars", hbs.engine);
 
 app.set("view engine", "handlebars");
-app.use(express.static(path.join(__dirname, "lib/public")));
+
 
 // Configure the express app
 app.use(morgan("combined"));

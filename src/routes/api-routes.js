@@ -5,11 +5,11 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.render('index');
+router.get('/test1', (req, res) => {
+  res.send('index');
 });
 router.get('/profile', (req, res) => {
-  res.render('index');
+  res.send('profile');
 });
 
 module.exports = router;

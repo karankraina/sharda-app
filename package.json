@@ -1,5 +1,5 @@
 {
-  "name": "basic",
+  "name": "sharda-app",
   "version": "0.0.1",
   "private": true,
   "license": "MIT",
@@ -23,21 +23,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/karankraina/"
+    "url": "https://github.com/karankraina/sharda-app"
   },
   "bugs": {
-    "url": "https://github.com/karankraina//issues"
+    "url": "https://github.com/karankraina/sharda-app/issues"
   },
   "dependencies": {
     "babelify": "10.0.0",
     "body-parser": "^1.19.0",
     "browserify": "^16.5.0",
     "compression": "^1.7.4",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.5",
     "core-js": "^3.2.1",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "express-force-ssl": "^0.3.2",
     "express-handlebars": "^3.1.0",
+    "express-session": "^1.17.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.2.0",
@@ -51,6 +54,8 @@
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
     "newrelic": "^5.13.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "pg-promise": "^9.3.6",
     "pump": "^3.0.0",
     "regenerator-runtime": "^0.13.3",
@@ -60,6 +65,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-export-default-from": "^7.8.3",
     "@babel/preset-env": "^7.6.2",
     "babel-polyfill": "^6.26.0",
     "eslint": "^6.5.1",
