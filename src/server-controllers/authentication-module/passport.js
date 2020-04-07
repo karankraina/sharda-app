@@ -7,7 +7,7 @@ var passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy
 
 const { ensureLoggedIn } = require('connect-ensure-login')
-import db from '../database-module';
+// import db from '../api-functions/database-module';
 
 const usersData  = [
     {
