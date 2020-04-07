@@ -14,6 +14,10 @@ const { auth } = require('./lib/server-controllers/authentication-module')
 
 // Importing the express module under the `app` variable
 const app = express();
+app.use((req, res, next) =>{
+  console.log(`route hit ==> ${req.url}`);
+  next()
+})
 app.use(express.static(path.join(__dirname, "lib/public")));
 
 
@@ -61,7 +65,7 @@ app.set("view engine", "handlebars");
 
 
 // Configure the express app
-app.use(morgan("combined"));
+// app.use(morgan("combined"));
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -78,14 +82,17 @@ app.use(compression());
 const authenticatedRoutes = require("./lib/routes/authenticated-routes");
 const publicRoutes = require("./lib/routes/public-routes");
 const apiRoutes = require("./lib/routes/api-routes");
-
+app.get('./vendor/*', (req, res, next) => {
+  next(404)
+})
 app.use("/", publicRoutes);
-app.use("/api/", apiRoutes);
+app.use("/api", apiRoutes);
 auth(app)
 app.use("/", authenticatedRoutes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
+  console.log('STATUS 404....')
   res.status(404);
   res.render("error");
 });

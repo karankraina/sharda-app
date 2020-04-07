@@ -1,14 +1,60 @@
- <form action="/login" method="POST">
-      <h2 class="text-center">Log in</h2>
-      <div class="form-group">
-        <input id="username" value="sample@sample.com" name="username" type="text" class="form-control" placeholder="Username"
-          required="required">
-      </div>
-      <div class="form-group">
-        <input id="password" name="password" value="password" type="password" class="form-control" placeholder="Password"
-          required="required">
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Log in</button>
-      </div>
-    </form>
+
+
+    <section class="ftco-section ftco-section-2 section-signup page-header img"
+			style="background-image: url(vendor/images/bg_2.jpg);">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+						<div class="card card-login py-4">
+							<form class="form-login" action="/login" method="POST">
+								<div class="card-header card-header-primary text-center">
+									<h4 class="card-title">Card Login</h4>
+									{{!-- <div class="social-line">
+										<a href="#" class="btn-icon d-flex align-items-center justify-content-center">
+											<i class="ion-logo-facebook"></i>
+										</a>
+										<a href="#" class="btn-icon d-flex align-items-center justify-content-center">
+											<i class="ion-logo-twitter"></i>
+										</a>
+										<a href="#" class="btn-icon d-flex align-items-center justify-content-center">
+											<i class="ion-logo-googleplus"></i>
+										</a>
+									</div> --}}
+								</div>
+								<div class="card-body px-4 pb-4 pt-2">
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text">
+												<i class="ion-ios-contact"></i>
+											</span>
+										</div>
+										<input type="text" class="form-control" placeholder="Username" value="sample@sample.com" name="username">
+									</div>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text">
+												<i class="ion-ios-lock"></i>
+											</span>
+										</div>
+										<input type="password" class="form-control" placeholder="Password..." name="password" value="password">
+									</div>
+									{{!-- <div class="form-check">
+										<label class="custom-control fill-checkbox mb-0">
+											<input type="checkbox" class="fill-control-input">
+											<span class="fill-control-indicator"></span>
+											<span class="fill-control-description">I Agree to the terms and
+												conditions.</span>
+										</label>
+									</div> --}}
+								</div>
+								<div class="footer text-center">
+									<button type="submit" class="btn btn-primary">Filled Button</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- - - - - -end- - - - -  -->

@@ -62,7 +62,7 @@ const middleWare = async (app) => {
     app.use(passport.session());
 
     app.post('/login',
-        passport.authenticate('local', { successReturnToOrRedirect: '/welcome' }),
+        passport.authenticate('local', { successReturnToOrRedirect: '/admin' }),
         function (req, res) {
             console.log('ROUTE AFTER AUTHENTICATION........')
             res.redirect('/');
