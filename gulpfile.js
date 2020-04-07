@@ -72,6 +72,11 @@ gulp.task('image', () => {
     // .pipe(imagemin())
     .pipe(gulp.dest('lib/public/vendor/images/'));
 });
+gulp.task('image2', () => {
+  return gulp.src('./src/public/img/*')
+    // .pipe(imagemin())
+    .pipe(gulp.dest('lib/public/img/'));
+});
 
 gulp.task('css', () => {
   return gulp.src('./src/public/vendor/css/*')
@@ -137,7 +142,7 @@ gulp.task('watch', () => {
 });
 
 gulp.task('build', gulp.series('babelify-server-controllers', 'babelify-routes', 'image', 'sass', 'babelify-js-vendor', 'babelify-js-general-vendor', 'minify-css-vendor', 'font', ));
-gulp.task('build', gulp.series('babelify-server-controllers', 'babelify-routes', 'image', 'sass', 'babelify-js-vendor', 'babelify-js-general-vendor', 'minify-css-vendor', 'font', 'css'));
+gulp.task('build', gulp.series('babelify-server-controllers', 'babelify-routes', 'image', 'sass', 'babelify-js-vendor', 'babelify-js-general-vendor', 'minify-css-vendor', 'font', 'css', 'image2'));
 /*  -----------------------  */
 
 /* START TASK */
