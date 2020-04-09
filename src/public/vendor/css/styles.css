@@ -1,0 +1,34 @@
+@font-face {
+    font-family: "Sharada";
+    src: url("/vendor/fonts/NotoSansSharada-Regular.ttf");
+    src: url("/vendor/fonts/NotoSansSharada-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+  .navbar-brand {
+      font-family: Sharada;
+      font-size: 2em;
+}
+
+.hero-wrap .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  opacity: 0.6;
+  background: #80520a;
+}
+
+.bg-warning {
+  background-color: #ffa00b!important;
+}
+.card-title {
+  margin-bottom: .75rem;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
