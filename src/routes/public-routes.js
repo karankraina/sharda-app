@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   res.render('index');
 });
 router.get('/gallery', (req, res) => {
-  getAllGalleryPosts().th en(data => {
+  getAllGalleryPosts().then(data => {
     console.log(data)
       res.render('gallery', { data });
       
