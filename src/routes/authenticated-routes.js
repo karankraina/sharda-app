@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   res.render('index');
 });
 router.get('/admin', (req, res) => {
-  res.render('index');
+  res.render('upload');
 });
 
 module.exports = router;

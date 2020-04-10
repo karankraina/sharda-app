@@ -1,11 +1,13 @@
 const contentful = require('contentful');
 const sdk = require('contentful-management');
+const fs = require('fs')
 
 export const uploadImage = (file, title) => {
   console.log('111111111111111111')
   const imgPath = file.imageFile.path;
   
-  const contentType = `image/${imgpath.split('.').pop()}`;
+  const contentType = `image/${imgPath.split('.').pop()}`;
+  const fileName = imgPath.split('.')[0] || 'sample'
 
   const spaceId = process.env.CONTENTFUL_SPACEID;
   const accessToken = process.env.CONTENTFUL_PERSONAL_TOKEN;
@@ -26,7 +28,7 @@ export const uploadImage = (file, title) => {
   return new Promise((resolve, reject) => {
     sdkClient.getSpace(spaceId).then((space) => {
       space.createUpload({
-        file: fs.createReadStream(imgpath),
+        file: fs.createReadStream(imgPath),
         contentType,
         title,
       })
