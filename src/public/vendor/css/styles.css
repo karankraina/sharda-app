@@ -31,4 +31,20 @@
   font-size: 1.5em;
   font-weight: bold;
 }
+.sharda-navbar{
+  position: fixed;
+  width: 100%;
+}
+.sharda-main-content{
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+.carousel-item1{
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  flex-direction: column;
+}
 

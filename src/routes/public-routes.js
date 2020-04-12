@@ -10,11 +10,14 @@ import { getAllGalleryPosts } from '../server-controllers/api-functions'
 router.get('/', (req, res) => {
   res.render('index');
 });
+router.get('/learn', (req, res) => {
+  res.render('learnsharda', { layout: 'learnsharda' });
+});
 router.get('/gallery', (req, res) => {
   getAllGalleryPosts().then(data => {
     console.log(data)
-      res.render('gallery', { data });
-      
+    res.render('gallery', { data });
+
   }).catch(error => {
     res.render('error');
   })
