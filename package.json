@@ -58,6 +58,7 @@
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
     "newrelic": "^5.13.0",
+    "cors": "^2.8.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg-promise": "^9.3.6",
