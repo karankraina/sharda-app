@@ -9,8 +9,11 @@ const favicon = require('serve-favicon');
 const helmet = require('helmet');
 const { auth } = require('./lib/server-controllers/authentication-module')
 
+var cors = require('cors')
+
 // Importing the express module under the `app` variable
 const app = express();
+app.use(cors())
 app.use((req, res, next) =>{
   console.log(`route hit ==> ${req.url}`);
   next()
