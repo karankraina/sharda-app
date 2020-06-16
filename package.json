@@ -7,6 +7,7 @@
     "start": "node ./bin/www",
     "gulp": "./gulpfile.js",
     "build": "gulp build",
+    "devbuild": "gulp",
     "lint": "gulp lint",
     "heroku-postbuild": "gulp build"
   },
@@ -38,6 +39,7 @@
     "contentful-management": "^5.18.3",
     "cookie-parser": "^1.4.5",
     "core-js": "^3.2.1",
+    "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "express-force-ssl": "^0.3.2",
@@ -58,7 +60,6 @@
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
     "newrelic": "^5.13.0",
-    "cors": "^2.8.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg-promise": "^9.3.6",

@@ -5,4 +5,12 @@ create table sharda_gallery (
     contributor text,
     isactive boolean,
     publicUrl text
-)
+);
+
+create table sharda_lessons_android (
+    id SERIAL PRIMARY KEY,
+    title text, 
+    description text,
+    lessondata text,
+    isactive boolean
+);

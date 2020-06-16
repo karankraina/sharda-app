@@ -7,7 +7,7 @@ const router = express.Router();
 
 import { uploadImage } from '../server-controllers/api-functions/contentful-module'
 import { insertImageEntry, initiateDb, viewGallery } from '../server-controllers/api-functions/database-module'
-import { getAllGalleryPosts } from '../server-controllers/api-functions'
+import apiModule from '../server-controllers/api-functions'
 
 router.get('/test1', (req, res) => {
   console.log('in test2')
@@ -22,13 +22,13 @@ router.get('/test2', (req, res) => {
   console.log('in test2')
   viewGallery().then(data => {
     console.log(data)
-    res.send('index')
+    res.render('gallery', { data })
   })
 });
 
 router.get('/get-gallery-posts', (req, res) => {
   const { id } = req.query
-  getAllGalleryPosts().then(data => {
+  apiModule.viewGallery(false).then(data => {
     if (!id) {
       res.status(200).send(data);
     } else {
@@ -55,6 +55,16 @@ router.post('/upload-image', (req, res, next) => {
     }).catch(error => {
       console.log(error)
     })
+  });
+});
+
+router.post('/toggle-image-status', (req, res, next) => {
+  const { imageId } = req.body;
+  apiModule.toggleImageStatus(imageId).then((galleryImages) => {
+    console.log(galleryImages);
+    res.render('upload', { layout: 'learnsharda', data: galleryImages });
+  }).catch((error) => {
+    res.render('error', error);
   });
 });
 

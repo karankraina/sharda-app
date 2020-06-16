@@ -2,34 +2,31 @@
 // Routes in this module require authentication
 import express from 'express';
 
+import apiFunctions from '../server-controllers/api-functions';
+
 
 const router = express.Router();
 
-import { getAllGalleryPosts } from '../server-controllers/api-functions'
-
 router.get('/', (req, res) => {
-  res.render('index');
+    res.render('index');
 });
 router.get('/learn', (req, res) => {
-  res.render('learnsharda', { layout: 'learnsharda' });
+    res.render('learnsharda', { layout: 'learnsharda' });
 });
 router.get('/gallery', (req, res) => {
-  getAllGalleryPosts().then(data => {
-    console.log(data)
-    res.render('gallery', { data });
-
-  }).catch(error => {
-    res.render('error');
-  })
-
+    apiFunctions.viewGallery().then((galleryImages) => {
+        res.render('gallery', { data: galleryImages });
+    }).catch((error) => {
+        res.render('error', error);
+    });
 });
 
 router.get('/all-components', (req, res) => {
-  res.render('maincomponents/index');
+    res.render('maincomponents/index');
 });
 
 router.get('/login', (req, res) => {
-  res.render('login');
+    res.render('login');
 });
 
 module.exports = router;

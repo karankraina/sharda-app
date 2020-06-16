@@ -7,23 +7,18 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const favicon = require('serve-favicon');
 const helmet = require('helmet');
-const { auth } = require('./lib/server-controllers/authentication-module')
+const cors = require('cors');
+const { auth } = require('./lib/server-controllers/authentication-module');
 
-var cors = require('cors')
 
 // Importing the express module under the `app` variable
 const app = express();
-app.use(cors())
-app.use((req, res, next) =>{
-  console.log(`route hit ==> ${req.url}`);
-  next()
-})
+app.use(cors());
+
 app.use(express.static(path.join(__dirname, 'lib/public')));
 
 
-
 global.appServer = app;
-
 
 
 // Importing the favicon, remove if you do not have one.
@@ -42,8 +37,8 @@ app.use(helmet());
 */
 app.use(
   helmet.hsts({
-    maxAge: 5184000
-  })
+    maxAge: 5184000,
+  }),
 );
 
 // helpers
@@ -69,10 +64,9 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
-    extended: false
-  })
+    extended: false,
+  }),
 );
-
 
 
 // compress all routes
@@ -82,17 +76,18 @@ app.use(compression());
 const authenticatedRoutes = require('./lib/routes/authenticated-routes');
 const publicRoutes = require('./lib/routes/public-routes');
 const apiRoutes = require('./lib/routes/api-routes');
+
 app.get('/vendor/*', (req, res, next) => {
-  next(404)
-})
+  next(404);
+});
 app.use('/', publicRoutes);
 app.use('/api', apiRoutes);
-auth(app)
+auth(app);
 app.use('/', authenticatedRoutes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  console.log('STATUS 404....')
+  console.log('STATUS 404....');
   res.status(404);
   res.render('error');
 });
@@ -105,7 +100,7 @@ if (app.get('env') === 'development') {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
-      error: err
+      error: err,
     });
   });
 }
@@ -116,7 +111,7 @@ app.use((err, req, res) => {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
-    error: {}
+    error: {},
   });
 });
 
