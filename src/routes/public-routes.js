@@ -14,7 +14,7 @@ router.get('/learn', (req, res) => {
     res.render('learnsharda', { layout: 'learnsharda' });
 });
 router.get('/gallery', (req, res) => {
-    apiFunctions.viewGallery().then((galleryImages) => {
+    apiFunctions.viewGallery(false).then((galleryImages) => {
         res.render('gallery', { data: galleryImages });
     }).catch((error) => {
         res.render('error', error);

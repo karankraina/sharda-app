@@ -15,7 +15,7 @@ router.get('/upload-image', (req, res) => {
     console.log(apiModule);
     apiModule.viewGallery(true).then((galleryImages) => {
         console.log(galleryImages);
-        res.render('upload', { layout: 'learnsharda', data: galleryImages });
+        res.render('admin/manage-gallery', { layout: 'learnsharda', data: galleryImages });
     }).catch((error) => {
         res.render('error', error);
     });

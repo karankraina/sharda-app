@@ -82,7 +82,7 @@ app.get('/vendor/*', (req, res, next) => {
 });
 app.use('/', publicRoutes);
 app.use('/api', apiRoutes);
-auth(app);
+// auth(app);
 app.use('/', authenticatedRoutes);
 
 // catch 404 and forward to error handler

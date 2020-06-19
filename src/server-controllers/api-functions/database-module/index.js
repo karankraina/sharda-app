@@ -33,7 +33,8 @@ export default {
         const {
             title, description, contributor, isactive, publicUrl,
         } = imageData;
-        db.any('insert into sharda_gallery(title, description, contributor, isactive, publicUrl) values ($1, $2, $3, $4, $5)', [title, description, contributor, isactive, publicUrl]);
+        return db.any('insert into sharda_gallery(title, description, contributor, isactive, publicUrl) values ($1, $2, $3, $4, $5)', [title, description, contributor, isactive, publicUrl]);
     },
     toggleImageStatus: (imageId) => { return db.any('update sharda_gallery set isactive= NOT isactive where id = $1', imageId); },
+    getLessonData: (id) => db.any('select lessondata from sharda_lessons_android where id=$1', id).then(([{lessondata}]) => lessondata)
 }

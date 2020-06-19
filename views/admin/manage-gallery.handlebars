@@ -24,7 +24,8 @@
         <th>Image Title</th>
         <th>Image</th>
         <th>Is Active</th>
-        <th>Delete</th>
+        <th>Action</th>
+        <th>Public URL</th>
       </tr>
     </thead>
     <tbody>
@@ -39,8 +40,9 @@
         </td>
         <td>{{this.isactive}}</td>
         <td class="text-center">
-          <button class="delete-button" image-id={{this.id}}>Delete</button>
+          <button class="delete-button" image-id={{this.id}}>Toggle Status</button>
         </td>
+        <td>{{this.publicurl}}</td>
       </tr>
       {{/each}}
     </tbody>
