@@ -1,0 +1,50 @@
+<script src="/vendor/js/admin/upload.js"></script>
+
+<div class="container-fluid admin-manage-cm admin-manage-product">
+  <form enctype="multipart/form-data" method="POST" action="/api/upload-image">
+    <input type="text" name="title" value="title" required="required" />
+    <input type="text" name="description" value="description" required="required" />
+    <input type="text" name="contributor" value="contributor" required="required" />
+    <select name="isactive">
+      <option value="yes">YES</option>
+      <option value="no">No</option>
+    </select>
+    <input type="file" name="imageFile" class="hidden" class="browse-btn" accept="image/png, image/jpeg, image/gif"
+      required="required" />
+    <input type="submit" value="Upload" class="upload-btn" />
+  </form>
+
+
+
+
+  <table id="example" class="display" width="100%" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Image Id.</th>
+        <th>Image Title</th>
+        <th>Image</th>
+        <th>Is Active</th>
+        <th>Action</th>
+        <th>Public URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each data}}
+      <tr>
+        <td class="text-center">{{this.id}}</td>
+        <td>{{this.title}}</td>
+        <td>
+          <div class="text-center">
+            <img alt="{{this.publicurl}}" src="{{{this.publicurl}}}" width="80px" height="60px" />
+          </div>
+        </td>
+        <td>{{this.isactive}}</td>
+        <td class="text-center">
+          <button class="delete-button" image-id={{this.id}}>Toggle Status</button>
+        </td>
+        <td>{{this.publicurl}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

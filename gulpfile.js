@@ -20,7 +20,14 @@ const pump = require('pump');
     files in the lib/server-controllers/ */
 gulp.task('babelify-server-controllers', () => {
   return gulp.src('src/server-controllers/**/*.js').pipe(babel({
-    presets: ['@babel/preset-env'],
+    presets: [[
+      "@babel/preset-env",
+      {
+        "targets": {
+          "esmodules": true
+        }
+      }
+    ]],
   })).pipe(gulp.dest('lib/server-controllers/'));
 });
 
@@ -48,7 +55,11 @@ gulp.task('babelify-js-general-vendor', () => {
 
 /* BROWSERIFY TASKS  */
 
-
+gulp.task('font', () => {
+  return gulp.src('./src/public/vendor/fonts/**/*')
+    // .pipe(imagemin())
+    .pipe(gulp.dest('lib/public/vendor/fonts/'));
+});
 
 /*  -----------------------  */
 
@@ -57,11 +68,21 @@ gulp.task('babelify-js-general-vendor', () => {
 /*  This task compresses all images from the src directory into the lib directory.
     If no compression is possible it simply copies the file from src to lib. */
 gulp.task('image', () => {
+  return gulp.src('./src/public/vendor/images/*')
+    // .pipe(imagemin())
+    .pipe(gulp.dest('lib/public/vendor/images/'));
+});
+gulp.task('image2', () => {
   return gulp.src('./src/public/img/*')
     // .pipe(imagemin())
     .pipe(gulp.dest('lib/public/img/'));
 });
 
+gulp.task('css', () => {
+  return gulp.src('./src/public/vendor/css/*')
+    // .pipe(imagemin())
+    .pipe(gulp.dest('lib/public/vendor/css/'));
+});
 /*  -----------------------  */
 
 /* SASS TASKS  */
@@ -120,7 +141,8 @@ gulp.task('watch', () => {
   gulp.watch('./src/public/vendor/css/**/*.css', gulp.series('minify-css-vendor'));
 });
 
-gulp.task('build', gulp.series('babelify-server-controllers', 'babelify-routes', 'image', 'sass', 'babelify-js-vendor', 'babelify-js-general-vendor', 'minify-css-vendor'));
+gulp.task('build', gulp.series('babelify-server-controllers', 'babelify-routes', 'image', 'sass', 'babelify-js-vendor', 'babelify-js-general-vendor', 'minify-css-vendor', 'font', ));
+gulp.task('build', gulp.series('babelify-server-controllers', 'babelify-routes', 'image', 'sass', 'babelify-js-vendor', 'babelify-js-general-vendor', 'minify-css-vendor', 'font', 'css', 'image2'));
 /*  -----------------------  */
 
 /* START TASK */
