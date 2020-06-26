@@ -21,6 +21,23 @@ router.get('/gallery', (req, res) => {
     });
 });
 
+<<<<<<< HEAD
+=======
+router.get('/about', (req, res) => {
+    res.render('about');
+});
+
+router.get('/contact', (req, res) => {
+    res.render('contact');
+});
+router.get('/transliteration', (req, res) => {
+    res.render('transliteration');
+});
+router.get('/lalded', (req, res) => {
+    res.render('vaakhs/lalded');
+});
+
+>>>>>>> master
 router.get('/all-components', (req, res) => {
     res.render('maincomponents/index');
 });
