@@ -85,6 +85,73 @@ router.get('/get-lesson-data', (req, res) => {
     });
 });
 
+router.get('/get-notification-messages', (req, res) => {
+    res.status(200).send({
+        data: [
+            {
+                message: 'This is a sample message from the team',
+                date: '16 June 2020',
+            },
+            {
+                message: 'Go to the links section to download JULY edition of Maatrika',
+                date: '16 June 2020',
+            },
+            {
+                message: 'This is another sample message from the team',
+                date: '16 June 2020',
+            },
+        ]
+    });
+
+});
+
+router.get('/get-android-links', (req, res) => {
+    res.status(200).send({
+        data: [
+            {
+              linkText: "Karan's GitHub App",
+              linkUrl: 'https://karankraina.github.io/',
+            },
+            {
+              linkText: 'Matrika June Edition',
+              linkUrl: 'https://karankraina.github.io/',
+            },
+            {
+              linkText: 'Link to Document 1',
+              linkUrl: 'https://karankraina.github.io/',
+            },
+            {
+              linkText: 'Link to Document 2',
+              linkUrl: 'https://karankraina.github.io/',
+            },
+            {
+              linkText: 'Android Keyboard Link',
+              linkUrl: 'https://karankraina.github.io/',
+            },
+            {
+              linkText: "Karan's GitHub App",
+              linkUrl: 'https://karankraina.github.io/',
+            },
+            {
+              linkText: 'Matrika June Edition',
+              linkUrl: 'https://karankraina.github.io/',
+            },
+            {
+              linkText: 'Link to Document 1',
+              linkUrl: 'https://karankraina.github.io/',
+            },
+            {
+              linkText: 'Link to Document 2',
+              linkUrl: 'https://karankraina.github.io/',
+            },
+            {
+              linkText: 'Android Keyboard Link',
+              linkUrl: 'https://karankraina.github.io/',
+            },
+          ]
+    });
+
+});
 // Gallery Module
 router.get('/images', (req, res) => {
     const { id } = req.query;
