@@ -30,6 +30,7 @@
     "url": "https://github.com/karankraina/sharda-app/issues"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
     "babelify": "10.0.0",
     "body-parser": "^1.19.0",
     "browserify": "^16.5.0",
@@ -71,7 +72,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
-    "@babel/plugin-proposal-export-default-from": "^7.8.3",
+    "@babel/plugin-proposal-export-default-from": "^7.10.1",
     "@babel/preset-env": "^7.6.2",
     "babel-polyfill": "^6.26.0",
     "eslint": "^6.5.1",
