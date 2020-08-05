@@ -1,30 +1,133 @@
-<section class="hero-wrap" style="background-image: url(vendor/images/bg_1.jpg); height:1080px;"
-    data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container">
-
-        <div class="row description align-items-center justify-content-center">
-
+<div class="container" style="margin-top:30px">
+    <div class="head-text flex-column align-items-center">
+        <h1>Sharda Translator</h1>
+        <p><b>Credits: </b><a href="https://vvikas.github.io/" target="_blank">Online Tool</a> developed by Vikas Veshishth Gargay</p>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="translator-textbox">
+                <h2></h2>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Large textarea</label>
-                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10"></textarea>
+                    <label for="comment">Text in Devnagri:</label>
+                    <textarea rows="8" class="form-control t-textbox" rows="5" id="devnagritext"></textarea>
                 </div>
-
-            {{!-- <div class="col-md-6">
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="translator-textbox">
+                <h2></h2>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Large textarea</label>
-                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10"></textarea>
+                    <label for="comment">Text in Sharda:</label>
+                    <textarea rows="8" class="form-control t-textbox" rows="5" id="shardatext"></textarea>
                 </div>
-            </div> --}}
+            </div>
         </div>
     </div>
-    </div>
-</section>
-{{!-- 
-<section class="ftco-section bg-light" id="cards">
-    <div class="container card-styles">
-        <div class="row">
+</div>
 
-        </div>
-    </div>
-</section> --}}
+ <script type="text/javascript">
+
+              map = {
+
+                "\u{111D1}": "\u0967",
+                "\u{111D2}": "\u0968",
+                "\u{111D3}": "\u0969",
+                "\u{111D4}": "\u096A",
+                "\u{111D5}": "\u096B",
+                "\u{111D6}": "\u096C",
+                "\u{111D7}": "\u096D",
+                "\u{111D8}": "\u096E",
+                "\u{111D9}": "\u096F",
+                "\u{111D0}": "\u0966",
+                "\u{111DA}": "\u090F\u0915\u0902",
+                "\u{11191}": "\u0915",
+                "\u{11183}": "\u0905",
+                "\u{11192}": "\u0916",
+                "\u{11184}": "\u0906",
+                "\u{11193}": "\u0917",
+                "\u{11185}": "\u0907",
+                "\u{11194}": "\u0918",
+                "\u{11186}": "\u0908",
+                "\u{11195}": "\u0919",
+                "\u{11187}": "\u0909",
+                "\u{11196}": "\u091A",
+                "\u{11188}": "\u090A",
+                "\u{11197}": "\u091B",
+                "\u{11189}": "\u090B",
+                "\u{11198}": "\u091C",
+                "\u{1118A}": "\u0960",
+                "\u{11199}": "\u091D",
+                "\u{1118B}": "\u090C",
+                "\u{1119A}": "\u091E",
+                "\u{1118C}": "\u0961",
+                "\u{111C0}": "\u094D",
+                "\u{1118D}": "\u090F",
+                "\u{1118E}": "\u0910",
+                "\u{1118F}": "\u0913",
+                "\u{11190}": "\u0914",
+                "\u{11180}": "\u0901",
+                "\u{1119B}": "\u091F",
+                "\u{11181}": "\u0902",
+                "\u{1119C}": "\u0920",
+                "\u{11182}": "\u0903",
+                "\u{1119D}": "\u0921",
+                "\u{111C1}": "\u093D",
+                "\u{1119E}": "\u0922",
+                "\u{111C5}": "\u0964",
+                "\u{1119F}": "\u0923",
+                "\u{111C4}": "\u0950",
+                "\u{111A0}": "\u0924",
+                "\u{111B3}": "\u093E",
+                "\u{111A1}": "\u0925",
+                "\u{111B4}": "\u093F",
+                "\u{111A2}": "\u0926",
+                "\u{111B5}": "\u0940",
+                "\u{111A3}": "\u0927",
+                "\u{111B6}": "\u0941",
+                "\u{111A4}": "\u0928",
+                "\u{111B7}": "\u0942",
+                "\u{111A5}": "\u092A",
+                "\u{111B8}": "\u0943",
+                "\u{111A6}": "\u092B",
+                "\u{111B9}": "\u0944",
+                "\u{111A7}": "\u092C",
+                "\u{111BA}": "\u0962",
+                "\u{111A8}": "\u092D",
+                "\u{111BB}": "\u0963",
+                "\u{111A9}": "\u092E",
+                "\u{111BC}": "\u0947",
+                "\u{111AA}": "\u092F",
+                "\u{111BD}": "\u0948",
+                "\u{111AB}": "\u0930",
+                "\u{111BE}": "\u094B",
+                "\u{111AC}": "\u0932",
+                "\u{111BF}": "\u094C",
+                "\u{111AD}": "\u0933",
+                "\u{111CA}": "\u093C",
+                "\u{111AE}": "\u0935",
+                "\u{111AF}": "\u0936",
+                "\u{111B0}": "\u0937",
+                "\u{111B1}": "\u0938",
+                "\u{111B2}": "\u0939"
+
+              }
+
+
+
+
+
+              replaceRec = function (str, thisS, thatT) { while (str != str.replace(thisS, thatT)) { str = str.replace(thisS, thatT); } return str; }
+              keys = Object.keys(map);
+
+              var sharadaToDevanagri = function (strIn) {
+                for (var i = 0; i < keys.length; i++) {
+                  strIn = replaceRec(strIn, map[keys[i]], keys[i])
+                }
+                return strIn;
+              }
+
+              $("#devnagritext").on('focus change input', function () {
+                $("#shardatext").val(sharadaToDevanagri($("#devnagritext").val()))
+              });
+
+            </script>

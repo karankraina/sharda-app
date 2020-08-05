@@ -1,0 +1,23 @@
+<div class="container" style="margin-top:30px">
+  <div class="head-text">
+      <h1>Sharda Gallery</h1>
+  </div>
+  <div class="gallery-body">
+      {{#each data}}
+      <div class="gallery-card">
+          <div class="gallery-card-top">
+            <img class="img-fluid gallery-img" src="{{{this.publicurl}}}" alt="{{{this.title}}}">
+          </div>
+          
+          <div class="gallery-card-bottom">
+            <a href="/vendor/images/logo.png" target="_blank">Download</a>
+            <p>Art By: {{this.contributor}}</p>
+          </div>
+          <div class="gallery-card-text">
+              <p>{{this.description}}</p>
+          </div>
+      </div>
+      {{/each}}
+      
+  </div>
+</div>

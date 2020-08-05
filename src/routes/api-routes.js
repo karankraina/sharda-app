@@ -8,6 +8,7 @@ const fsp = require('fs').promises
 import { uploadImage } from '../server-controllers/api-functions/contentful-module';
 import { initiateDb, viewGallery } from '../server-controllers/api-functions/database-module';
 import apiModule from '../server-controllers/api-functions';
+import apiFunctions from '../server-controllers/api-functions';
 
 const formidable = require('formidable');
 
@@ -106,50 +107,12 @@ router.get('/get-notification-messages', (req, res) => {
 });
 
 router.get('/get-android-links', (req, res) => {
-    res.status(200).send({
-        data: [
-            {
-              linkText: "Karan's GitHub App",
-              linkUrl: 'https://karankraina.github.io/',
-            },
-            {
-              linkText: 'Matrika June Edition',
-              linkUrl: 'https://karankraina.github.io/',
-            },
-            {
-              linkText: 'Link to Document 1',
-              linkUrl: 'https://karankraina.github.io/',
-            },
-            {
-              linkText: 'Link to Document 2',
-              linkUrl: 'https://karankraina.github.io/',
-            },
-            {
-              linkText: 'Android Keyboard Link',
-              linkUrl: 'https://karankraina.github.io/',
-            },
-            {
-              linkText: "Karan's GitHub App",
-              linkUrl: 'https://karankraina.github.io/',
-            },
-            {
-              linkText: 'Matrika June Edition',
-              linkUrl: 'https://karankraina.github.io/',
-            },
-            {
-              linkText: 'Link to Document 1',
-              linkUrl: 'https://karankraina.github.io/',
-            },
-            {
-              linkText: 'Link to Document 2',
-              linkUrl: 'https://karankraina.github.io/',
-            },
-            {
-              linkText: 'Android Keyboard Link',
-              linkUrl: 'https://karankraina.github.io/',
-            },
-          ]
-    });
+    apiFunctions.fetchLinks().then((linksData) => {
+        res.status(200).send({
+            data: linksData
+        });
+    })
+    
 
 });
 // Gallery Module

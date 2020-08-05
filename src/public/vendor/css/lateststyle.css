@@ -1,0 +1,89 @@
+@font-face {
+    font-family: "Sharada";
+    src: url("/vendor/fonts/NotoSansSharada-Regular.ttf");
+    src: url("/vendor/fonts/NotoSansSharada-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  textarea.form-control {
+    height: auto;
+    font-family: Sharada;
+}
+.jumbotron.top-banner {
+    background-image: url(../images/bg_1.jpg);
+    background-size: cover;
+    color: #000;
+    opacity: 0.7;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+ 
+.bg-dark {
+    background-color: #ff833a!important;
+    color: #000;
+}
+.navbar-dark .navbar-brand {
+    color: #000;
+    font-family: Sharada;
+    font-size: 2em;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #000;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+.row-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.row-image{
+    display: flex;
+    justify-content: center;
+    margin-top: 26px;
+}
+.row-class{
+    margin-top: 10px;
+}
+.link-button{
+    padding: 15px 50px;
+    font-size: 1.2em;
+}
+.head-text {
+    display: flex;
+    justify-content: center;
+}
+.gallery-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.gallery-card {
+    width: 250px;
+    border: 1px solid;
+    margin: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.gallery-img {
+    
+}
+.gallery-card-bottom{
+    display: flex;
+    justify-content: space-evenly;
+}
+.gallery-card-top {
+    flex: 1;
+    align-items: center;
+    /* justify-content: center; */
+    display: flex;
+}
+.gallery-card-text{
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 7px;
+}
+.t-textbox{
+}

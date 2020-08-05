@@ -8,12 +8,24 @@ import apiFunctions from '../server-controllers/api-functions';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('index');
-});
-router.get('/learn', (req, res) => {
-    res.render('learnsharda', { layout: 'learnsharda' });
+    res.render('indexlatest', {layout: 'learnsharda'});
 });
 router.get('/gallery', (req, res) => {
+    apiFunctions.viewGallery(false).then((galleryImages) => {
+        console.log({galleryImages})
+        res.render('gallerylatest', { data: galleryImages, layout: 'learnsharda' });
+    }).catch((error) => {
+        res.render('error', error);
+    });
+});
+router.get('/transliteration', (req, res) => {
+    res.render('transliteration', { layout: 'learnsharda' });
+});
+router.get('/learn', (req, res) => {
+    res.redirect('https://karankraina.github.io/learning/main.html')
+    // res.render('learnsharda', { layout: 'learnsharda' });
+});
+router.get('/gallery2', (req, res) => {
     apiFunctions.viewGallery(false).then((galleryImages) => {
         res.render('gallery', { data: galleryImages });
     }).catch((error) => {
@@ -21,10 +33,18 @@ router.get('/gallery', (req, res) => {
     });
 });
 
-router.get('/about', (req, res) => {
-    res.render('about');
+router.get('/aboutus', (req, res) => {
+    res.render('about', { layout: 'learnsharda' });
 });
 
+router.get('/links', (req, res) => {
+    apiFunctions.fetchLinks().then((linkData) => {
+        console.log(linkData)
+        res.render('linkspage', { data: linkData, layout: 'learnsharda' });
+    }).catch((error) => {
+        res.render('error', error);
+    });
+});
 router.get('/contact', (req, res) => {
     res.render('contact');
 });

@@ -38,4 +38,5 @@ export default {
     toggleImageStatus: (imageId) => { return db.any('update sharda_gallery set isactive= NOT isactive where id = $1', imageId); },
     getLessonData: (id) => { return db.any('select lessondata from sharda_lessons_android where id=$1', id).then(([{ lessondata }]) => { return lessondata; }); },
     getImageById: (imageId) => { return db.any('select id, title, imagedata from sharda_gallery where id = $1', [imageId]); },
+    
 };

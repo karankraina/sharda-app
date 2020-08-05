@@ -2,24 +2,62 @@
 <html lang="en">
 
 <head>
-    <title>Core Sharda Team</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
-       <script src="/vendor/js/master-js/index.js"></script>
+  <title>Core Sharda Team</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="vendor/css/bootstrap/bootstrap.min.css">
+  
+  <style>
+    .fakeimg {
+      height: 200px;
+      background: #aaa;
+    }
+  </style>
+  <script src="vendor/js/general/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="/vendor/css/lateststyle.css">
 </head>
 
 <body>
 
-    <div class="container">
-        {{>header}}
-        {{{body}}}
-        {{>footer}}
+  <div class="jumbotron text-center top-banner" style="margin-bottom:0">
+    <h1>Core Sharda Team</h1>
+    <p>Striving to revive people's interest in the ancient and sacred script of Kashmir - <span class="sharda-label">Sharda Script</span></p>
+  </div>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="/">𑇄</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="https://karankraina.github.io/learning/main.html">Learn Sharda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/transliteration">Translator</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/aboutus">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/links">Links</a>
+        </li>
+      </ul>
     </div>
+  </nav>
+
+  {{{body}}}
+
+  <div class="jumbotron text-center" style="margin-bottom:0">
+    <p>Core Sharda Team</p>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
+  <script src="vendor/js/general/js/bootstrap.min.js"></script>
 
 </body>
 
