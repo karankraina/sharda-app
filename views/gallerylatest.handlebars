@@ -6,15 +6,15 @@
       {{#each data}}
       <div class="gallery-card">
           <div class="gallery-card-top">
-            <img class="img-fluid gallery-img" src="{{{this.publicurl}}}" alt="{{{this.title}}}">
+            <a href="{{{this.publicurl}}}" target="_blank"><img class="img-fluid gallery-img" src="{{{this.publicurl}}}" alt="{{{this.title}}}"></a>
           </div>
           
           <div class="gallery-card-bottom">
-            <a href="/vendor/images/logo.png" target="_blank">Download</a>
-            <p>Art By: {{this.contributor}}</p>
+            <p>Art By: <span class="contri-name">{{this.contributor}}</span></p>
+            <p>{{this.description}}</p>
           </div>
           <div class="gallery-card-text">
-              <p>{{this.description}}</p>
+              
           </div>
       </div>
       {{/each}}
