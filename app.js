@@ -77,17 +77,17 @@ const authenticatedRoutes = require('./lib/routes/authenticated-routes');
 const publicRoutes = require('./lib/routes/public-routes');
 const apiRoutes = require('./lib/routes/api-routes');
 
-app.get('/vendor/*', (req, res, next) => {
-  next(404);
-});
+// app.get('/vendor/*', (req, res, next) => {
+//   next(404);
+// });
 app.use('/', publicRoutes);
 app.use('/api', apiRoutes);
-// auth(app);
-app.use('/', authenticatedRoutes);
+auth(app);
+app.use('/admin', authenticatedRoutes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  console.log('STATUS 404....');
+  console.log('STATUS 404....', req.url);
   res.status(404);
   res.render('error');
 });

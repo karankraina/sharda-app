@@ -9,14 +9,14 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     console.log('in auth routes');
-    res.render('index');
+    res.render('admin', { layout: 'admin' });
 });
 router.get('/upload-image', (req, res) => {
-    console.log(apiModule);
     apiModule.viewGallery(true).then((galleryImages) => {
         console.log(galleryImages);
-        res.render('admin/manage-gallery', { layout: 'learnsharda', data: galleryImages });
+        res.render('admin/manage-gallery', { layout: 'admin', data: galleryImages });
     }).catch((error) => {
+        console.log(error)
         res.render('error', error);
     });
 });

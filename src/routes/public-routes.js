@@ -8,13 +8,15 @@ import apiFunctions from '../server-controllers/api-functions';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('indexlatest', {layout: 'learnsharda'});
+    res.render('indexlatest', { layout: 'learnsharda' });
 });
 router.get('/gallery', (req, res) => {
+    console.log('gallery route hit')
     apiFunctions.viewGallery(false).then((galleryImages) => {
-        console.log({galleryImages})
+        console.log({ galleryImages })
         res.render('gallerylatest', { data: galleryImages, layout: 'learnsharda' });
     }).catch((error) => {
+        console.log('eoor ', error)
         res.render('error', error);
     });
 });
@@ -60,7 +62,7 @@ router.get('/all-components', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    res.render('login');
+    res.render('login', { layout: 'learnsharda' });
 });
 
 module.exports = router;

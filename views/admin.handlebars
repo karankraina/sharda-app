@@ -1,0 +1,14 @@
+
+<div class="container-fluid admin-manage-cm admin-manage-product">
+  <form enctype="multipart/form-data" method="POST" action="/api/upload-image">
+    <input type="text" name="title" value="title" required="required" />
+    <input type="text" name="description" value="description" required="required" />
+    <input type="text" name="contributor" value="contributor" required="required" />
+    <select name="isactive">
+      <option value="yes">YES</option>
+      <option value="no">No</option>
+    </select>
+    <input type="file" name="imageFile" class="hidden" class="browse-btn" accept="image/png, image/jpeg, image/gif"
+      required="required" />
+    <input type="submit" value="Upload" class="upload-btn" />
+  </form>
