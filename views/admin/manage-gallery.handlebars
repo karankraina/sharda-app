@@ -1,6 +1,46 @@
 <script src="/vendor/js/admin/upload.js"></script>
 
+
+
 <div class="container-fluid admin-manage-cm admin-manage-product">
+
+  <form enctype="multipart/form-data" method="POST" action="/api/upload-image">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputTitle4">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="title" name="Title">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputcontributor4">Contributor</label>
+        <input type="text" class="form-control" id="contributor" placeholder="Contributor" name="contributor">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="descripiton">Descripiton</label>
+      <input type="text" class="form-control" id="descripiton" placeholder="Descripiton" name="description">
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group col-md-6">
+        <label for="inputState">Publish</label>
+        <select id="inputState" class="form-control" name="isactive">
+          <option selected>Choose...</option>
+          <option value="yes">YES</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputState">Choose File</label>
+        <input type="file" id="inputState" name="imageFile" class="form-control" class="browse-btn"
+          accept="image/png, image/jpeg, image/gif" required="required" />
+      </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Upload</button>
+  </form>
+
   <form enctype="multipart/form-data" method="POST" action="/api/upload-image">
     <input type="text" name="title" value="title" required="required" />
     <input type="text" name="description" value="description" required="required" />
@@ -23,7 +63,7 @@
         <th>Image Id.</th>
         <th>Image Title</th>
         <th>Image</th>
-        <th>Is Active</th>
+        <th>Show in Gallery </th>
         <th>Action</th>
         <th>Public URL</th>
       </tr>

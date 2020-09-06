@@ -13,10 +13,7 @@
   },
   "author": "Karan Raina <karanraina196@gmail.com>",
   "contributors": [
-    {
-      "name": "Karan Raina",
-      "email": "karanraina196@gmail.com"
-    }
+    "Karan Raina <karanraina196@gmail.com>"
   ],
   "engines": {
     "node": "10.16.3",
@@ -24,12 +21,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/karankraina/sharda-app"
+    "url": "git+https://github.com/karankraina/sharda-app.git"
   },
   "bugs": {
     "url": "https://github.com/karankraina/sharda-app/issues"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
     "babelify": "10.0.0",
     "body-parser": "^1.19.0",
     "browserify": "^16.5.0",
@@ -55,7 +53,7 @@
     "gulp-mocha": "^7.0.1",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
-    "handlebars": "^4.4.2",
+    "handlebars": "^4.7.6",
     "helmet": "^3.21.1",
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
@@ -71,7 +69,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
-    "@babel/plugin-proposal-export-default-from": "^7.8.3",
+    "@babel/plugin-proposal-export-default-from": "^7.10.1",
     "@babel/preset-env": "^7.6.2",
     "babel-polyfill": "^6.26.0",
     "eslint": "^6.5.1",
@@ -95,5 +93,11 @@
       "src/**/*.js"
     ],
     "delay": "2500"
+  },
+  "description": "### Basic web architecture for node js apps",
+  "homepage": "https://github.com/karankraina/sharda-app#readme",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
   }
 }

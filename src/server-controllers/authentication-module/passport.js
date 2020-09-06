@@ -14,6 +14,11 @@ const usersData  = [
         id: 1,
         email: "sample@sample.com",
         password: "password"
+    },
+    {
+        id: 2,
+        email: "CoreShardaTeam",
+        password: "password"
     }
 ]
 

@@ -79,7 +79,7 @@ gulp.task('image2', () => {
 });
 
 gulp.task('css', () => {
-  return gulp.src('./src/public/vendor/css/*')
+  return gulp.src('./src/public/vendor/css/**/*')
     // .pipe(imagemin())
     .pipe(gulp.dest('lib/public/vendor/css/'));
 });
