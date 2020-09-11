@@ -28,9 +28,13 @@
     font-size: 2em;
 }
 .navbar-dark .navbar-nav .nav-link {
+
     color: #000;
     font-weight: bold;
     font-size: 1.3em;
+}
+.navbar-nav {
+    right: 10px;
 }
 .row-section{
     display: flex;
