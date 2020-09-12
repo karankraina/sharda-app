@@ -1,0 +1,79 @@
+<section style="background-color:blanchedalmond; margin-top:0px">
+    <hr>
+    <h1 style="text-align: center;">Lal Vaakhs</h1>
+    <hr>
+    {{!-- <div class="container" style="margin-top:30px">
+  <div class="row row-class">
+    <div class="col-12">
+      <div class="links-section">
+        <ul class="list-group">
+          {{#each data}}
+          <li class="list-group-item">
+            <a href="{{this.linkUrl}}" target="_blank" >{{this.linkText}}</a>
+          </li>
+          {{/each}}
+          <li class="list-group-item">
+            <a href="/test" >Test Link</a>
+          </li>
+          <li class="list-group-item">
+            <a href="/test" >Test Link</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div> --}}
+
+
+{{!-- json ----> vaakh id, url, sharada desc, eng desc, hindi desc, 
+
+also change the id of each collapsable div --}}
+
+
+
+    <div class="row" style="margin-left:5%; margin-right:5%; margin-top:2%">
+        <div class="col-sm-12 col-lg-3" style="margin-top:15px; margin-bottom:15px">
+            <div class="list-group  audio-container" style="background-color: white; border-radius:25px; padding:20px">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-2">Vaakh No. #1</h5>
+                </div>
+                <audio controls style="col-lg-6">
+                    <source src="horse.ogg" type="audio/ogg">
+                    <source src="horse.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <hr>
+                Translation
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link " id="nav-home-tab" data-toggle="tab" href="#hindi" role="tab" aria-controls="nav-home" aria-selected="false">Hindi</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#sharda" role="tab" aria-controls="nav-profile" aria-selected="false">Sharda</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#english" role="tab" aria-controls="nav-contact" aria-selected="false">English</a>
+  </div>
+  <div class="tab-content" id="nav-tabContent">
+                <div class="collapse" id="hindi">
+                    <div class="card card-body">
+                        Hindi
+                    </div>
+                </div>
+                                <div class="collapse" id="sharda">
+                    <div class="card card-body">
+                       Sharda
+                    </div>
+                </div>
+                                <div class="collapse" id="english">
+                    <div class="card card-body">
+                        English
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        </div>
+
+
+
+        
+
+    </div>
+</section>

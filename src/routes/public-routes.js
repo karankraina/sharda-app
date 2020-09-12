@@ -48,13 +48,13 @@ router.get('/links', (req, res) => {
     });
 });
 router.get('/contact', (req, res) => {
-    res.render('contact');
+    res.render('contact', { layout: 'learnsharda' });
 });
 router.get('/transliteration', (req, res) => {
     res.render('transliteration');
 });
 router.get('/lalded', (req, res) => {
-    res.render('vaakhs/lalded');
+    res.render('vaakhs/lalded' , { layout: 'learnsharda' });
 });
 
 router.get('/all-components', (req, res) => {

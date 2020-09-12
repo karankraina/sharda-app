@@ -17,24 +17,32 @@
     font-weight: bold;
     font-size: 1.4em;
 }
- 
+.audio-container
+{
+    padding: 10px;
+}
 .bg-dark {
     background-color: #ff833a!important;
     color: #000;
 }
 .navbar-dark .navbar-brand {
     color: #000;
-    font-family: Sharada;
-    font-size: 2em;
+    /* font-family: Sharada; */
+    /* font-size: 2em; */
+    margin-bottom: 0%;
 }
 .navbar-dark .navbar-nav .nav-link {
 
     color: #000;
     font-weight: bold;
-    font-size: 1.3em;
+    /* font-size: 1.3em; */
 }
 .navbar-nav {
     right: 10px;
+}
+.brand-text {
+    margin-left:20px;
+    font-weight: bolder;
 }
 .row-section{
     display: flex;
